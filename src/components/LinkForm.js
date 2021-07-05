@@ -60,7 +60,7 @@ const LinkForm = (props) => {
                 <input
                     type="text"
                     className="form-control"
-                    placeholder="https://someurl.xyz"
+                    placeholder="https://SomeUrl.ForXpath"
                     value={values.url}
                     name="url"
                     onChange={handleInputChange}

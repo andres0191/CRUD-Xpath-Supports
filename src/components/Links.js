@@ -63,6 +63,7 @@ const Links = () => {
                         onClick={() => setCurrentId(link.id)}>create</i>
                   </div>
                 </div>
+                <h6>{link.url}</h6>
                 <p>{link.description}</p>
               </div>
             </div>
