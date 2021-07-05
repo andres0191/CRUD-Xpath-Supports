@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import React from 'react';
+import { toast } from "react-toastify";
+import { db } from "../firebase";
 
 const LinkForm = (props) => {
 
@@ -19,10 +21,22 @@ const LinkForm = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(values)
         props.addXpath(values);
+        setValues({...initialStateValues})
+    };
+
+    const getLinkById = async (id) => {
+        const doc = await db.collection('plantillasXpath').doc(id).get();
+        console.log(doc.data())
     }
 
+    useEffect(() => {
+        if(props.currentId === ''){
+            setValues({...initialStateValues})
+        } else {
+            getLinkById(props.currentId)
+        }
+    }, [props.currentId]);
 
     return (
         <form className="card card-body" onSubmit={handleSubmit}>
@@ -63,7 +77,7 @@ const LinkForm = (props) => {
             ></textarea>
             </div>
             <button className="btn btn-primary btn-block">
-                Save
+                {props.currentId === "" ? 'Save' : 'Update'}
             </button>
         </form>
     );
