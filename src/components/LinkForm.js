@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import React from 'react';
 
-const LinkForm = () => {
+const LinkForm = (props) => {
 
     const initialStateValues = {
         url: "",
@@ -15,6 +15,7 @@ const LinkForm = () => {
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setValues({ ...values, [name]: value });
+        props.add();
     };
 
     const handleSubmit = (e) => {
