@@ -15,12 +15,12 @@ const LinkForm = (props) => {
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setValues({ ...values, [name]: value });
-        props.add();
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(values)
+        props.addXpath(values);
     }
 
 
