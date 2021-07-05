@@ -42,6 +42,19 @@ const LinkForm = (props) => {
         <form className="card card-body" onSubmit={handleSubmit}>
             <div className="form-group input-group">
                 <div className="input-group-text bg-light">
+                    <i className="material-icons">create</i>
+                </div>
+                <input
+                    type="text"
+                    value={values.name}
+                    name="name"
+                    placeholder="User Name"
+                    className="form-control"
+                    onChange={handleInputChange}
+                />
+            </div>
+            <div className="form-group input-group">
+                <div className="input-group-text bg-light">
                 <i className="material-icons">insert_link</i>
                 </div>
                 <input
@@ -53,24 +66,11 @@ const LinkForm = (props) => {
                     onChange={handleInputChange}
                 />
             </div>
-            <div className="form-group input-group">
-                <div className="input-group-text bg-light">
-                    <i className="material-icons">create</i>
-                </div>
-                <input
-                    type="text"
-                    value={values.name}
-                    name="name"
-                    placeholder="Website Name"
-                    className="form-control"
-                    onChange={handleInputChange}
-                />
-            </div>
             <div className='form-group'>
             <textarea
                 rows="3"
                 className="form-control"
-                placeholder="Write a Description"
+                placeholder="Write Xpath expression"
                 name="description"
                 value={values.description}
                 onChange={handleInputChange}
